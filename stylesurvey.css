@@ -310,3 +310,49 @@ body::before {
     color: #dcfce7;
     margin: 0;
 }
+@media (max-width: 768px) {
+
+    body {
+        font-size: 14px;
+    }
+
+    .container {
+        width: 92%;
+        margin: 20px auto;
+    }
+
+    .header {
+        flex-direction: row;
+        padding: 10px 15px;
+        gap: 10px;
+    }
+
+    .header-text h2 {
+        font-size: 16px;
+    }
+
+    .header-text p {
+        font-size: 12px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    input, label {
+        font-size: 14px;
+    }
+
+    .card {
+        padding: 15px;
+    }
+}
