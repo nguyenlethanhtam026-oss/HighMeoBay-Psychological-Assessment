@@ -1,71 +1,97 @@
-let loneliness =
-Number(localStorage.getItem("lonelinessScore"));
+// ================= LẤY DỮ LIỆU TỪ SURVEY =================
+let lonelinessScore = Number(localStorage.getItem("lonelinessScore"));
+let socialScore = Number(localStorage.getItem("socialScore"));
 
-let social =
-Number(localStorage.getItem("socialScore"));
+// ================= KIỂM TRA LỖI =================
+if (isNaN(lonelinessScore) || isNaN(socialScore)) {
+    alert("Không tìm thấy dữ liệu. Hãy làm lại khảo sát.");
+}
 
-let lonelinessLevel = "";
-let socialLevel = "";
+// ================= HÀM PHÂN LOẠI =================
+function getLevel(percent){
+    if(percent < 33){
+        return { text: "🟢 Thấp", color: "#00ff88" };
+    }
+    else if(percent < 66){
+        return { text: "🟡 Trung bình", color: "#facc15" };
+    }
+    else{
+        return { text: "🔴 Cao", color: "#ef4444" };
+    }
+}
 
+// ================= ANIMATE THANH =================
+function animateBar(bar, targetPercent, color){
+    let width = 0;
+
+    bar.style.background = color;
+
+    let interval = setInterval(() => {
+        if(width >= targetPercent){
+            clearInterval(interval);
+        } else {
+            width++;
+            bar.style.width = width + "%";
+        }
+    }, 10);
+}
+
+// ================= U C L A (CÔ ĐƠN) =================
+let lonelinessPercent = Math.round((lonelinessScore / 80) * 100);
+let lonelinessLevel = getLevel(lonelinessPercent);
+
+document.getElementById("lonelinessScore").innerText =
+    `Điểm: ${lonelinessScore}/80`;
+
+animateBar(
+    document.getElementById("lonelinessBar"),
+    lonelinessPercent,
+    lonelinessLevel.color
+);
+
+document.getElementById("lonelinessLevel").innerText =
+    `${lonelinessLevel.text} - ${lonelinessPercent}%`;
+
+// ================= C I U (MXH) =================
+let socialPercent = Math.round((socialScore / 50) * 100);
+let socialLevel = getLevel(socialPercent);
+
+document.getElementById("socialScore").innerText =
+    `Điểm: ${socialScore}/50`;
+
+animateBar(
+    document.getElementById("socialBar"),
+    socialPercent,
+    socialLevel.color
+);
+
+document.getElementById("socialLevel").innerText =
+    `${socialLevel.text} - ${socialPercent}%`;
+
+// ================= LỜI KHUYÊN =================
 let advice = "";
 
-if(loneliness <= 34){
-    lonelinessLevel = "Thấp";
+// cô đơn
+if(lonelinessPercent >= 66){
+    advice += "Bạn đang có mức độ cô đơn cao. Hãy tăng kết nối xã hội và chia sẻ nhiều hơn. ";
 }
-else if(loneliness <= 49){
-    lonelinessLevel = "Trung bình";
-}
-else{
-    lonelinessLevel = "Cao";
-}
-
-if(social <= 24){
-    socialLevel = "Thấp";
-}
-else if(social <= 36){
-    socialLevel = "Trung bình";
+else if(lonelinessPercent >= 33){
+    advice += "Bạn có mức độ cô đơn trung bình. Duy trì và mở rộng mối quan hệ hiện tại. ";
 }
 else{
-    socialLevel = "Cao";
+    advice += "Bạn có mức độ cô đơn thấp, trạng thái khá ổn định. ";
 }
 
-if(
-    lonelinessLevel === "Cao" &&
-    socialLevel === "Cao"
-){
-    advice =
-    "Bạn có mức độ cô đơn cao và thường tìm đến mạng xã hội để bù đắp cảm xúc.";
+// mạng xã hội
+if(socialPercent >= 66){
+    advice += "Bạn có xu hướng dùng mạng xã hội để bù đắp cảm xúc. Nên cân bằng lại thời gian online/offline. ";
 }
-else if(
-    lonelinessLevel === "Cao"
-){
-    advice =
-    "Bạn đang có mức độ cô đơn tương đối cao.";
-}
-else if(
-    socialLevel === "Cao"
-){
-    advice =
-    "Bạn có xu hướng sử dụng mạng xã hội như một cách tìm kiếm sự kết nối.";
+else if(socialPercent >= 33){
+    advice += "Bạn dùng mạng xã hội ở mức vừa phải. Tiếp tục kiểm soát tốt. ";
 }
 else{
-    advice =
-    "Các chỉ số của bạn đang ở mức tương đối ổn định.";
+    advice += "Bạn ít phụ thuộc mạng xã hội, đây là tín hiệu tốt. ";
 }
 
-document.getElementById("loneliness")
-.innerText =
-"Điểm cô đơn: " + loneliness;
-
-document.getElementById("social")
-.innerText =
-"Điểm sử dụng MXH bù đắp: " + social;
-document.getElementById("lonelinessLevel")
-.innerText =
-"Mức độ cô đơn: " + lonelinessLevel;
-
-document.getElementById("socialLevel")
-.innerText =
-"Mức độ sử dụng MXH bù đắp: " + socialLevel;
-document.getElementById("advice")
-.innerText = advice;
+// hiển thị lời khuyên
+document.getElementById("advice").innerText = advice;
