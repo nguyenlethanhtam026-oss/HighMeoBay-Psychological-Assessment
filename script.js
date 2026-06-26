@@ -305,6 +305,13 @@ console.log("aloneActivity =", aloneActivity);
 console.log("socialPurpose =", socialPurpose);
 
     // Gửi dữ liệu lên Google Sheet
+let submitBtn =
+document.getElementById("submitBtn");
+
+submitBtn.disabled = true;
+
+submitBtn.textContent =
+"Đang gửi...";
 
     fetch(
 "https://script.google.com/macros/s/AKfycby4WM9nd9fAhSfawLYHeiY2O2IiegvoiK57lCgR5ysNtaGzU_aSu8XKqYp7DAv3hhM/exec",
@@ -341,9 +348,31 @@ console.log("socialPurpose =", socialPurpose);
 
     console.log(data);
 
-    alert("Đã gửi thành công!");
+    document.body.insertAdjacentHTML(
+        "beforeend",
+        `
+        <div id="loadingScreen">
 
-    window.location.href = "result.html";
+            <div class="loading-box">
+
+                <div class="spinner"></div>
+
+                <p>
+                    Đang xử lý kết quả khảo sát...
+                </p>
+
+            </div>
+
+        </div>
+        `
+    );
+
+    setTimeout(function(){
+
+        window.location.href =
+        "result.html";
+
+    },1500);
 
 })
 .catch(error => {
@@ -352,6 +381,602 @@ console.log("socialPurpose =", socialPurpose);
 
     alert("Lỗi: " + error);
 
+    submitBtn.disabled = false;
+
+submitBtn.textContent =
+"Gửi khảo sát";
 });
 
 });
+
+// ======================================
+// 1 CÂU HỎI / 1 MÀN HÌNH
+// ======================================
+
+const questions =
+document.querySelectorAll(".question-card");
+
+let currentQuestion = 0;
+
+
+// ======================================
+// HIỆN TIÊU ĐỀ ĐÚNG PHẦN
+// ======================================
+
+function updateTitles(){
+
+    let titleA =
+    document.getElementById("titleA");
+
+    let titleB =
+    document.getElementById("titleB");
+
+    let titleC =
+    document.getElementById("titleC");
+
+    if(!titleA || !titleB || !titleC) return;
+
+    titleA.classList.remove("active");
+    titleB.classList.remove("active");
+    titleC.classList.remove("active");
+
+    if(currentQuestion <= 19){
+
+        titleA.classList.add("active");
+
+    }
+
+    else if(currentQuestion <= 31){
+
+        titleB.classList.add("active");
+
+    }
+
+    else{
+
+        titleC.classList.add("active");
+
+    }
+
+}
+
+
+// ======================================
+// CHUYỂN SANG CÂU TIẾP
+// ======================================
+
+function autoNextQuestion(){
+
+    setTimeout(function(){
+
+        if(currentQuestion < questions.length - 1){
+
+            questions[currentQuestion]
+            .classList.remove("active");
+
+            currentQuestion++;
+            updateActiveNav();
+            questions[currentQuestion]
+            .classList.add("active");
+
+            updateTitles();
+
+        }
+
+    },200);
+
+}
+
+
+// ======================================
+// PHẦN A
+// ======================================
+
+for(let i = 1; i <= 20; i++){
+
+    document
+    .querySelectorAll(`input[name="q${i}"]`)
+    .forEach(function(input){
+
+        input.addEventListener("change", function(){
+
+            document
+            .getElementById(`nav${i}`)
+            ?.classList.add("answered");
+
+            updateProgress();
+
+            autoNextQuestion();
+
+        });
+
+    });
+
+}
+
+
+// ======================================
+// PHẦN B
+// ======================================
+
+for(let i = 31; i <= 42; i++){
+
+    document
+    .querySelectorAll(`input[name="q${i}"]`)
+    .forEach(function(input){
+
+        input.addEventListener("change", function(){
+
+            document
+            .getElementById(`nav${i}`)
+            ?.classList.add("answered");
+
+            updateProgress();
+
+            autoNextQuestion();
+
+        });
+
+    });
+
+}
+
+
+// ======================================
+// PHẦN C
+// ======================================
+
+function markPartC(){
+
+    const map = {
+
+        graded: "nav51",
+        grade: "nav52",
+        subject_group: "nav53",
+        time_social: "nav54",
+        alone_activity: "nav55",
+        social_purpose: "nav56",
+        mucdoketban: "nav57",
+        mucdocamxuc: "nav58"
+
+    };
+
+    Object.keys(map).forEach(function(name){
+
+        if(
+            document.querySelector(
+                `input[name="${name}"]:checked`
+            )
+        ){
+
+            document
+            .getElementById(map[name])
+            ?.classList.add("answered");
+
+        }
+
+    });
+
+}
+
+
+// ======================================
+// GẮN SỰ KIỆN PHẦN C
+// ======================================
+
+[
+    "graded",
+    "grade",
+    "subject_group",
+    "time_social",
+    "alone_activity",
+    "social_purpose",
+    "mucdoketban",
+    "mucdocamxuc"
+]
+
+.forEach(function(name){
+
+    document
+    .querySelectorAll(
+        `input[name="${name}"]`
+    )
+
+    .forEach(function(input){
+
+        input.addEventListener(
+            "change",
+            function(){
+
+                markPartC();
+
+                updateProgress();
+
+                autoNextQuestion();
+
+            }
+        );
+
+    });
+
+});
+
+
+// ======================================
+// UPDATE PROGRESS
+// ======================================
+
+function updateProgress(){
+
+    let completed = 0;
+
+    for(let i = 1; i <= 20; i++){
+
+        if(
+            document.querySelector(
+                `input[name="q${i}"]:checked`
+            )
+        ){
+
+            completed++;
+
+        }
+
+    }
+
+    for(let i = 31; i <= 42; i++){
+
+        if(
+            document.querySelector(
+                `input[name="q${i}"]:checked`
+            )
+        ){
+
+            completed++;
+
+        }
+
+    }
+
+    const partC = [
+
+        "graded",
+        "grade",
+        "subject_group",
+        "time_social",
+        "alone_activity",
+        "social_purpose",
+        "mucdoketban",
+        "mucdocamxuc"
+
+    ];
+
+    partC.forEach(function(name){
+
+        if(
+            document.querySelector(
+                `input[name="${name}"]:checked`
+            )
+        ){
+
+            completed++;
+
+        }
+
+    });
+
+    document
+    .getElementById("progressText")
+    .textContent =
+    `${completed} / 40 câu đã hoàn thành`;
+
+    document
+    .getElementById("progressFill")
+    .style.width =
+    (completed / 40) * 100 + "%";
+
+}
+
+
+// ======================================
+// NAVIGATION
+// ======================================
+
+document
+.querySelectorAll(".question-number")
+
+.forEach(function(nav){
+
+    nav.addEventListener(
+        "click",
+        function(e){
+
+            e.preventDefault();
+
+            let target =
+            nav.getAttribute("href");
+
+            let el =
+            document.querySelector(target);
+
+            if(!el) return;
+
+            let card =
+            el.closest(".question-card");
+
+            let index =
+            Array.from(questions)
+            .indexOf(card);
+
+            questions.forEach(function(q){
+                q.classList.remove("active");
+            });
+
+            currentQuestion = index;
+
+            questions[currentQuestion]
+            .classList.add("active");
+
+            updateTitles();
+            markPartC();
+            updateProgress();
+            updateActiveNav();
+
+        }
+    );
+
+});
+
+
+// ======================================
+// NÚT TIẾP THEO
+// ======================================
+
+document
+.getElementById("nextBtn")
+.addEventListener("click", function(){
+
+    let currentCard =
+    questions[currentQuestion];
+
+    let checked =
+    currentCard.querySelector(
+        'input[type="radio"]:checked, input[type="checkbox"]:checked'
+    );
+
+    if(!checked){
+
+        alert("Cậu chưa chọn đáp án.");
+
+        return;
+
+    }
+
+    if(currentQuestion < questions.length - 1){
+
+        questions[currentQuestion]
+        .classList.remove("active");
+
+        currentQuestion++;
+
+        updateTitles();
+        updateActiveNav();
+
+        questions[currentQuestion]
+        .classList.add("active");
+
+    }
+
+});
+
+// ======================================
+// NÚT QUAY LẠI
+// ======================================
+
+document
+.getElementById("prevBtn")
+?.addEventListener(
+    "click",
+    function(){
+
+        if(currentQuestion > 0){
+
+            questions[currentQuestion]
+            .classList.remove("active");
+
+            currentQuestion--;
+            updateActiveNav();
+            questions[currentQuestion]
+            .classList.add("active");
+
+            updateTitles();
+
+        }
+
+    }
+);
+
+
+// ======================================
+// KHỞI TẠO
+// ======================================
+
+window.addEventListener(
+    "DOMContentLoaded",
+    function(){
+        updateTitles();
+
+        questions.forEach(function(q){
+
+            q.classList.remove("active");
+
+        });
+
+        if(questions.length > 0){
+
+            questions[0]
+            .classList.add("active");
+
+        }
+
+        markPartC();
+
+        updateActiveNav(); // THÊM DÒNG NÀY
+
+    
+        // ===========================
+// RESTORE SAVED ANSWERS
+// ===========================
+
+document.querySelectorAll("input").forEach(input => {
+
+    if(input.type === "radio"){
+
+        let saved =
+        localStorage.getItem(input.name);
+
+        if(saved === input.value){
+
+            input.checked = true;
+
+        }
+
+    }
+
+    if(input.type === "checkbox"){
+
+        let saved =
+        JSON.parse(
+            localStorage.getItem(input.name)
+            || "[]"
+        );
+
+        if(saved.includes(input.value)){
+
+            input.checked = true;
+
+        }
+
+    }
+
+});
+
+        questions.forEach(function(q){
+
+            q.classList.remove("active");
+
+        });
+
+        if(questions.length > 0){
+
+            questions[0]
+            .classList.add("active");
+
+        }
+
+        updateTitles();
+
+        markPartC();
+
+        updateProgress();
+
+    }
+);
+
+// ===========================
+// AUTO SAVE
+// ===========================
+
+document.querySelectorAll("input").forEach(input => {
+
+    input.addEventListener("change", function(){
+
+        if(input.type === "radio"){
+
+            localStorage.setItem(
+                input.name,
+                input.value
+            );
+
+        }
+
+        if(input.type === "checkbox"){
+
+            let checkedValues = [];
+
+            document
+            .querySelectorAll(
+                `input[name="${input.name}"]:checked`
+            )
+            .forEach(item => {
+
+                checkedValues.push(item.value);
+
+            });
+
+            localStorage.setItem(
+                input.name,
+                JSON.stringify(checkedValues)
+            );
+
+        }
+
+    });
+
+});
+
+function updateActiveNav(){
+
+    document
+    .querySelectorAll(".question-number")
+    .forEach(item => {
+
+        item.classList.remove("active");
+
+    });
+
+    let currentCard =
+    questions[currentQuestion];
+
+    if(!currentCard) return;
+
+    let navId =
+    currentCard.dataset.nav;
+
+    if(!navId) return;
+
+    let activeNav =
+    document.getElementById(navId);
+
+    if(activeNav){
+
+        activeNav.classList.add("active");
+
+    }
+
+}
+// ================= FOOTER ANIMATION =================
+
+function animateFooter(){
+
+const footer = document.querySelector(".footer");
+
+    if(!footer) return;
+
+    const footerTop = footer.getBoundingClientRect().top;
+
+    const windowHeight = window.innerHeight;
+
+    if(footerTop < windowHeight - 100){
+
+        footer.classList.add("show");
+
+    }
+
+}
+
+window.addEventListener("load", animateFooter);
+
+window.addEventListener("scroll", animateFooter);
+
+window.addEventListener("resize", animateFooter);

@@ -15,7 +15,7 @@ body{
         rgba(0,0,0,0.55),
         rgba(0,0,0,0.55)
     ),
-    url("images/library.jpg");
+    url("images/library.png");
 
     background-size:cover;
     background-position:center;
@@ -562,8 +562,6 @@ button:hover{
 
 /* ================= FOOTER ================= */
 
-/* ================= FOOTER ================= */
-
 .footer{
 
  
@@ -738,49 +736,42 @@ font-size:14px;
 
 }
 
-@media (max-width: 768px) {
+.author-link{
 
-    body {
-        font-size: 14px;
-    }
+    margin-top:10px;
 
-    .container {
-        width: 92%;
-        margin: 20px auto;
-    }
+    font-size:14px;
 
-    .header {
-        flex-direction: row;
-        padding: 10px 15px;
-        gap: 10px;
-    }
+    color:#bbf7d0;
 
-    .header-text h2 {
-        font-size: 16px;
-    }
+    font-style:italic;
+}
 
-    .header-text p {
-        font-size: 12px;
-    }
+.test-image a{
 
-    h1 {
-        font-size: 22px;
-    }
+    display:inline-block;
+}
 
-    h2 {
-        font-size: 18px;
-    }
+.test-image a img{
 
-    p {
-        font-size: 14px;
-        line-height: 1.6;
-    }
+    transition:0.3s ease;
+}
 
-    input, label {
-        font-size: 14px;
-    }
+.test-image a:hover img{
 
-    .card {
-        padding: 15px;
-    }
+    transform:scale(1.05);
+
+    box-shadow:
+    0 0 30px rgba(134,239,172,0.45),
+    0 15px 35px rgba(0,0,0,0.4);
+}
+.author-role{
+
+    color:#d1fae5;
+
+    font-size:14px;
+
+    margin-top:5px;
+
+    font-style:italic;
 }
