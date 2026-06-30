@@ -1,25 +1,25 @@
 // ================= FOOTER ANIMATION =================
 
-function animateFooter(){
+document.addEventListener("DOMContentLoaded", () => {
+    const footer = document.querySelector(".footer");
 
-const footer = document.querySelector(".footer");
+    window.addEventListener("scroll", () => {
+        if (!footer) return;
 
-    if(!footer) return;
+        const rect = footer.getBoundingClientRect();
 
-    const footerTop = footer.getBoundingClientRect().top;
+        if (rect.top < window.innerHeight - 100) {
+            footer.style.opacity = "1";
+            footer.style.transform = "translateY(0)";
+        }
+    });
+    const header = document.querySelector(".header");
 
-    const windowHeight = window.innerHeight;
-
-    if(footerTop < windowHeight - 100){
-
-        footer.classList.add("show");
-
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 40) {
+        header.classList.add("scrolled");
+    } else {
+        header.classList.remove("scrolled");
     }
-
-}
-
-window.addEventListener("load", animateFooter);
-
-window.addEventListener("scroll", animateFooter);
-
-window.addEventListener("resize", animateFooter);
+});
+});
