@@ -41,3 +41,32 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
+
+// ================= ORIENTATION NOTICE =================
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const overlay = document.getElementById("orientationOverlay");
+    const closeBtn = document.getElementById("closeOrientation");
+
+    if (!overlay || !closeBtn) return;
+
+    const viewed = sessionStorage.getItem("orientationNotice");
+
+    if (
+        !viewed &&
+        window.innerWidth < 768 &&
+        window.innerHeight > window.innerWidth
+    ) {
+        overlay.classList.add("show");
+    }
+
+    closeBtn.addEventListener("click", () => {
+
+        overlay.classList.remove("show");
+
+        sessionStorage.setItem("orientationNotice", "true");
+
+    });
+
+});
