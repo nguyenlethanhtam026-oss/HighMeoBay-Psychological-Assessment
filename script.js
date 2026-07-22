@@ -631,8 +631,6 @@ function markPartC(){
 
                 updateProgress();
 
-                autoNextQuestion();
-
             }
         );
 
