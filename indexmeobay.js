@@ -45,14 +45,17 @@ document.addEventListener("DOMContentLoaded", () => {
 // ================= ORIENTATION NOTICE =================
 
 document.addEventListener("DOMContentLoaded", () => {
-
+    console.log("JS đã chạy");
     const overlay = document.getElementById("orientationOverlay");
+    console.log(overlay);
     const closeBtn = document.getElementById("closeOrientation");
 
     if (!overlay || !closeBtn) return;
 
     const viewed = sessionStorage.getItem("orientationNotice");
-
+    console.log("viewed =", viewed);
+console.log("width =", window.innerWidth);
+console.log("height =", window.innerHeight);
     if (
         !viewed &&
         window.innerWidth < 768 &&
