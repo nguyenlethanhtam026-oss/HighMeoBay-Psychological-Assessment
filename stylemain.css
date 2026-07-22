@@ -2267,225 +2267,289 @@ transform:rotate(180deg);
 
 }
 
-/* =========================================
-            MOBILE PORTRAIT
-========================================= */
+/* =====================================================
+                MOBILE PORTRAIT
+===================================================== */
 
 @media screen and (max-width:768px) and (orientation:portrait){
 
+/* ================= HEADER ================= */
+
 body{
     padding-top:10px;
-    background-attachment:scroll;
 }
 
 .header{
     width:95%;
-    padding:12px 16px;
-    gap:10px;
-    border-radius:18px;
+    padding:12px 15px;
+    gap:12px;
 }
 
 .logo img{
-    width:44px;
-    height:44px;
+    width:45px;
+    height:45px;
 }
 
 .header-text h2{
     font-size:17px;
+    line-height:1.35;
 }
 
 .header-text p{
     font-size:11px;
+    letter-spacing:1px;
 }
 
+/* ================= HERO ================= */
+
 .hero{
-    padding:95px 15px 30px;
-    min-height:auto;
+    padding:70px 15px 30px;
 }
 
 .hero-card{
-    padding:82px 22px 32px;
+    width:100%;
+    padding:35px 20px;
     border-radius:22px;
 }
 
-.hero-logo{
-    width:115px;
-    height:115px;
-    transform:translate(-50%,-45%);
-}
-
 .hero-card h1{
-    font-size:28px;
+    font-size:30px;
     line-height:1.3;
 }
 
-.hero-subtitle{
-    gap:10px;
-    margin:18px 0 22px;
-}
-
-.hero-subtitle .line{
-    max-width:70px;
-}
-
-.subtitle-text{
-    font-size:17px;
-    white-space:normal;
-    text-align:center;
-}
-
-.description{
+.typing{
     font-size:15px;
     line-height:1.8;
 }
 
-.pronounce{
-    font-size:14px;
+.quote-box{
+    padding:18px;
 }
 
-.slogan{
+.quote-box p{
     font-size:17px;
 }
 
-.explore-btn{
-    width:100%;
-    padding:17px;
-    font-size:17px;
+/* ================= SECTION ================= */
+
+.section{
+    padding:0 15px;
 }
 
-.footer{
-    padding:45px 18px;
-}
-
-.footer h3{
+.section-title{
     font-size:24px;
+    text-align:center;
 }
 
-.footer-content p{
-    font-size:15px;
-}
+/* ================= TEAM PREVIEW ================= */
 
-.footer-owner{
+.student-preview{
     display:flex;
     flex-direction:column;
     gap:18px;
 }
 
-.owner-box{
+.preview-item{
     width:100%;
-    max-width:100%;
 }
 
-.footer-logo-side img{
-    width:80px;
-    height:80px;
+.preview-name{
+    font-size:22px;
+    line-height:1.35;
 }
 
-.orientation-card{
-    width:92%;
-    padding:28px 22px;
+.preview-role{
+    font-size:18px;
 }
 
-.orientation-card h2{
+/* ================= TEAM DETAIL ================= */
+
+.member{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    gap:18px;
+    padding:22px;
+}
+
+.member img{
+    width:170px;
+    height:170px;
+    object-fit:cover;
+}
+
+.member-info{
+    width:100%;
+}
+
+.member-info h3{
     font-size:24px;
+    line-height:1.4;
 }
 
-.orientation-card p{
-    font-size:15px;
+.member-info p{
+    font-size:16px;
+    line-height:1.8;
 }
 
-.phone-icon{
-    font-size:52px;
+/* ================= MISSION ================= */
+
+.mission-vision{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
 }
 
+.mv-card{
+    width:100%;
 }
 
-/* =========================================
-            MOBILE LANDSCAPE
-========================================= */
+/* ================= ASSESSMENT ================= */
+/* GIỮ SLIDER NGANG */
 
-@media screen and (max-width:932px) and (orientation:landscape){
-
-body{
-    padding-top:12px;
-    background-attachment:scroll;
+.assessment-slider{
+    display:flex;
+    overflow-x:auto;
+    gap:18px;
+    scroll-snap-type:x mandatory;
 }
 
-.header{
-    width:96%;
-    padding:12px 20px;
+.assessment-card{
+    min-width:280px;
+    scroll-snap-align:start;
 }
 
-.logo img{
-    width:48px;
-    height:48px;
+/* ================= KNOWLEDGE ================= */
+
+.knowledge-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:20px;
 }
 
-.header-text h2{
-    font-size:19px;
+.book-card{
+    width:100%;
+    padding:24px 20px;
 }
 
-.header-text p{
-    font-size:12px;
+.book-card h3{
+    font-size:24px;
+    line-height:1.4;
 }
 
-.hero{
-    padding:90px 20px 30px;
-    min-height:auto;
-}
-
-.hero-card{
-    max-width:1000px;
-    padding:70px 35px 30px;
-}
-
-.hero-logo{
-    width:130px;
-    height:130px;
-    transform:translate(-50%,-45%);
-}
-
-.hero-card h1{
-    font-size:36px;
-}
-
-.hero-subtitle{
-    margin:18px 0 25px;
-}
-
-.subtitle-text{
-    font-size:20px;
-}
-
-.description{
+.book-card p{
     font-size:17px;
     line-height:1.8;
 }
 
-.pronounce{
-    font-size:15px;
+.developing-btn{
+    width:100%;
 }
 
-.slogan{
-    font-size:18px;
+/* ================= RESEARCH ================= */
+
+/* ================= PHẦN 4 - MOBILE PORTRAIT ================= */
+
+.research-box{
+    padding:0;
+    overflow:visible;
 }
 
-.explore-btn{
-    padding:16px 40px;
+.research-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
 }
+
+.research-card{
+
+    width:100%;
+
+    padding:22px 20px;
+
+    border-radius:20px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:flex-start;
+
+    text-align:left;
+
+}
+
+.research-title{
+
+    width:100%;
+
+    font-size:22px;
+
+    font-weight:700;
+
+    line-height:1.4;
+
+    margin-bottom:12px;
+
+}
+
+.research-description{
+
+    width:100%;
+
+    font-size:16px;
+
+    line-height:1.8;
+
+    margin-bottom:20px;
+
+}
+
+.research-button{
+
+    width:100%;
+
+    margin-top:auto;
+
+}
+
+.research-button a{
+
+    display:block;
+
+    width:100%;
+
+    padding:14px;
+
+    border-radius:12px;
+
+    text-align:center;
+
+    text-decoration:none;
+
+}
+
+/* ================= FOOTER ================= */
 
 .footer{
-    padding:40px 20px;
+    padding:45px 18px;
 }
 
 .footer-owner{
-    display:grid;
-    grid-template-columns:120px 1fr 1fr 120px;
-    gap:18px;
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+    align-items:center;
 }
 
 .owner-box{
     width:100%;
+    max-width:340px;
 }
 
 .footer-logo-side img{
@@ -2493,10 +2557,106 @@ body{
     height:85px;
 }
 
-.orientation-card{
-    width:75%;
-    max-width:500px;
+}
+/* ==================================================
+                MOBILE LANDSCAPE
+================================================== */
+
+@media screen and (max-width:932px) and (orientation:landscape){
+
+.header{
+    width:96%;
+    padding:12px 20px;
+}
+
+.hero{
+    padding:60px 20px 25px;
+}
+
+.hero-card{
+    padding:40px;
+}
+
+.hero-card h1{
+    font-size:38px;
+}
+
+.typing{
+    font-size:17px;
+}
+
+/* ---------- Team ---------- */
+
+.student-preview{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+}
+
+.member{
+    display:grid;
+    grid-template-columns:180px 1fr;
+    gap:25px;
+    align-items:center;
+}
+
+.member img{
+    width:160px;
+    height:160px;
+}
+
+/* ---------- Mission ---------- */
+
+.mission-vision{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+/* ---------- Assessment ---------- */
+
+.assessment-slider{
+    overflow-x:auto;
+}
+
+.assessment-card{
+    min-width:320px;
+}
+
+/* ---------- Knowledge ---------- */
+
+.knowledge-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.book-card{
+    padding:22px;
+}
+
+/* ---------- Research ---------- */
+
+.research-list{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+/* ---------- Footer ---------- */
+
+.footer-owner{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+.footer-logo-side{
+    display:none;
+}
+
+.owner-box{
+    width:100%;
 }
 
 }
-
