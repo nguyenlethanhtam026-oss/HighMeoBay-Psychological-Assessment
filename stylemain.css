@@ -2267,396 +2267,231 @@ transform:rotate(180deg);
 
 }
 
-/* =====================================================
-                MOBILE PORTRAIT
-===================================================== */
+/* ==========================================
+   📱 ĐIỆN THOẠI DỌC (Portrait)
+========================================== */
 
-@media screen and (max-width:768px) and (orientation:portrait){
+@media screen and (max-width:768px) {
 
-/* ================= HEADER ================= */
+    body{
+        background-attachment:scroll;
+    }
 
-body{
-    padding-top:10px;
-}
+    .header{
+        width:95%;
+        padding:12px 15px;
+        gap:12px;
+    }
 
-.header{
-    width:95%;
-    padding:12px 15px;
-    gap:12px;
-}
+    .logo img{
+        width:48px;
+        height:48px;
+    }
 
-.logo img{
-    width:45px;
-    height:45px;
-}
+    .header-text h2{
+        font-size:18px;
+    }
 
-.header-text h2{
-    font-size:17px;
-    line-height:1.35;
-}
+    .header-text p{
+        font-size:11px;
+    }
 
-.header-text p{
-    font-size:11px;
-    letter-spacing:1px;
-}
+    .hero{
+        margin:35px auto 50px;
+        padding:0 15px;
+    }
 
-/* ================= HERO ================= */
+    .hero-card{
+        padding:35px 22px;
+        border-radius:22px;
+    }
 
-.hero{
-    padding:70px 15px 30px;
-}
+    .hero-card h1{
+        font-size:30px;
+    }
 
-.hero-card{
-    width:100%;
-    padding:35px 20px;
-    border-radius:22px;
-}
+    .hero-card p{
+        font-size:16px;
+        line-height:1.8;
+    }
 
-.hero-card h1{
-    font-size:30px;
-    line-height:1.3;
-}
+    .section-box,
+    .assessment-box,
+    .knowledge-box,
+    .research-box{
+        padding:20px;
+    }
 
-.typing{
-    font-size:15px;
-    line-height:1.8;
-}
+    .section-title{
+        font-size:28px;
+    }
 
-.quote-box{
-    padding:18px;
-}
+    /* Thành viên */
 
-.quote-box p{
-    font-size:17px;
-}
+    .teacher-preview,
+    .preview-item{
+        width:100%;
+    }
 
-/* ================= SECTION ================= */
+    .student-preview{
+        flex-direction:column;
+        gap:18px;
+    }
 
-.section{
-    padding:0 15px;
-}
+    .member{
+        display:flex;
+        flex-direction:column;
+        text-align:center;
+    }
 
-.section-title{
-    font-size:24px;
-    text-align:center;
-}
+    .member img{
+        width:150px;
+        height:150px;
+    }
 
-/* ================= TEAM PREVIEW ================= */
+    /* Sứ mệnh */
 
-.student-preview{
-    display:flex;
-    flex-direction:column;
-    gap:18px;
-}
+    .mission-vision{
+        grid-template-columns:1fr;
+    }
 
-.preview-item{
-    width:100%;
-}
+    /* Kiến thức */
 
-.preview-name{
-    font-size:22px;
-    line-height:1.35;
-}
+    .knowledge-grid{
+        grid-template-columns:1fr;
+    }
 
-.preview-role{
-    font-size:18px;
-}
+    /* Nghiên cứu */
 
-/* ================= TEAM DETAIL ================= */
+    .research-card{
+        grid-template-columns:1fr;
+        text-align:center;
+    }
 
-.member{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    text-align:center;
-    gap:18px;
-    padding:22px;
-}
+    .research-title{
+        font-size:22px;
+    }
 
-.member img{
-    width:170px;
-    height:170px;
-    object-fit:cover;
-}
+    .research-description{
+        font-size:16px;
+    }
 
-.member-info{
-    width:100%;
-}
+    /* Timeline */
 
-.member-info h3{
-    font-size:24px;
-    line-height:1.4;
-}
+    .timeline-branch{
+        flex-direction:column;
+    }
 
-.member-info p{
-    font-size:16px;
-    line-height:1.8;
-}
+    .timeline-branch::before{
+        display:none;
+    }
 
-/* ================= MISSION ================= */
+    .timeline-member{
+        width:100%;
+    }
 
-.mission-vision{
-    display:flex;
-    flex-direction:column;
-    gap:20px;
-}
+    /* Footer */
 
-.mv-card{
-    width:100%;
-}
+    .footer-owner{
+        display:flex;
+        flex-direction:column;
+        gap:20px;
+    }
 
-/* ================= ASSESSMENT ================= */
-/* GIỮ SLIDER NGANG */
+    .owner-box{
+        width:100%;
+        max-width:350px;
+    }
 
-.assessment-slider{
-    display:flex;
-    overflow-x:auto;
-    gap:18px;
-    scroll-snap-type:x mandatory;
-}
-
-.assessment-card{
-    min-width:280px;
-    scroll-snap-align:start;
-}
-
-/* ================= KNOWLEDGE ================= */
-
-.knowledge-grid{
-    display:grid;
-    grid-template-columns:1fr;
-    gap:20px;
-}
-
-.book-card{
-    width:100%;
-    padding:24px 20px;
-}
-
-.book-card h3{
-    font-size:24px;
-    line-height:1.4;
-}
-
-.book-card p{
-    font-size:17px;
-    line-height:1.8;
-}
-
-.developing-btn{
-    width:100%;
-}
-
-/* ================= RESEARCH ================= */
-
-/* ================= PHẦN 4 - MOBILE PORTRAIT ================= */
-
-.research-box{
-    padding:0;
-    overflow:visible;
-}
-
-.research-list{
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:18px;
+    .footer-logo-side img{
+        width:90px;
+        height:90px;
+    }
 
 }
 
-.research-card{
+/* ==========================================
+   📱 ĐIỆN THOẠI NGANG (Landscape)
+========================================== */
 
-    width:100%;
+@media screen and (orientation:landscape) and (max-height:500px){
 
-    padding:22px 20px;
+    body{
+        background-attachment:scroll;
+    }
 
-    border-radius:20px;
+    .header{
+        width:95%;
+        padding:10px 20px;
+    }
 
-    display:flex;
+    .logo img{
+        width:50px;
+        height:50px;
+    }
 
-    flex-direction:column;
+    .header-text h2{
+        font-size:20px;
+    }
 
-    align-items:flex-start;
+    .hero{
+        margin:25px auto 40px;
+    }
 
-    text-align:left;
+    .hero-card{
+        padding:40px;
+    }
 
-}
+    .hero-card h1{
+        font-size:38px;
+    }
 
-.research-title{
+    .hero-card p{
+        font-size:17px;
+    }
 
-    width:100%;
+    /* Thành viên */
 
-    font-size:22px;
+    .student-preview{
+        display:grid;
+        grid-template-columns:repeat(2,1fr);
+        gap:20px;
+    }
 
-    font-weight:700;
+    .member{
+        display:grid;
+        grid-template-columns:150px 1fr;
+        gap:20px;
+        align-items:center;
+    }
 
-    line-height:1.4;
+    .member img{
+        width:130px;
+        height:130px;
+    }
 
-    margin-bottom:12px;
+    /* Hai cột */
 
-}
+    .mission-vision{
+        grid-template-columns:repeat(2,1fr);
+    }
 
-.research-description{
+    .knowledge-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
 
-    width:100%;
+    /* Nghiên cứu */
 
-    font-size:16px;
+    .research-card{
+        grid-template-columns:250px 1fr;
+    }
 
-    line-height:1.8;
+    /* Footer */
 
-    margin-bottom:20px;
-
-}
-
-.research-button{
-
-    width:100%;
-
-    margin-top:auto;
-
-}
-
-.research-button a{
-
-    display:block;
-
-    width:100%;
-
-    padding:14px;
-
-    border-radius:12px;
-
-    text-align:center;
-
-    text-decoration:none;
-
-}
-
-/* ================= FOOTER ================= */
-
-.footer{
-    padding:45px 18px;
-}
-
-.footer-owner{
-    display:flex;
-    flex-direction:column;
-    gap:20px;
-    align-items:center;
-}
-
-.owner-box{
-    width:100%;
-    max-width:340px;
-}
-
-.footer-logo-side img{
-    width:85px;
-    height:85px;
-}
-
-}
-/* ==================================================
-                MOBILE LANDSCAPE
-================================================== */
-
-@media screen and (max-width:932px) and (orientation:landscape){
-
-.header{
-    width:96%;
-    padding:12px 20px;
-}
-
-.hero{
-    padding:60px 20px 25px;
-}
-
-.hero-card{
-    padding:40px;
-}
-
-.hero-card h1{
-    font-size:38px;
-}
-
-.typing{
-    font-size:17px;
-}
-
-/* ---------- Team ---------- */
-
-.student-preview{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:18px;
-}
-
-.member{
-    display:grid;
-    grid-template-columns:180px 1fr;
-    gap:25px;
-    align-items:center;
-}
-
-.member img{
-    width:160px;
-    height:160px;
-}
-
-/* ---------- Mission ---------- */
-
-.mission-vision{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:20px;
-}
-
-/* ---------- Assessment ---------- */
-
-.assessment-slider{
-    overflow-x:auto;
-}
-
-.assessment-card{
-    min-width:320px;
-}
-
-/* ---------- Knowledge ---------- */
-
-.knowledge-grid{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:20px;
-}
-
-.book-card{
-    padding:22px;
-}
-
-/* ---------- Research ---------- */
-
-.research-list{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:20px;
-}
-
-/* ---------- Footer ---------- */
-
-.footer-owner{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:20px;
-}
-
-.footer-logo-side{
-    display:none;
-}
-
-.owner-box{
-    width:100%;
-}
+    .footer-owner{
+        display:grid;
+        grid-template-columns:repeat(2,1fr);
+        gap:20px;
+    }
 
 }
