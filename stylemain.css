@@ -375,9 +375,6 @@ border:
 1px solid rgba(255,255,255,.18);
 
 box-shadow:0 8px 25px rgba(0,0,0,0.20);
-}
-
-.owner-box{
 
 transition:
 transform .3s ease,
@@ -458,12 +455,6 @@ transform:scale(1.08);
 transform:scale(1.08);
 
 filter:brightness(1.1);
-
-}
-
-.footer-logo-side img:hover{
-
-transform:scale(1.08);
 
 }
 
@@ -1077,22 +1068,6 @@ button {
 
 }
 
-
-/* ================= RESPONSIVE ================= */
-@media (max-width: 900px) {
-    .team-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .mission-vision {
-        grid-template-columns: 1fr;
-    }
-
-    .person-card {
-        max-width: 100%;
-    }
-}
-
 /* ================= SECTION TITLE UNDERLINE ================= */
 section h2 {
     position: relative;
@@ -1575,26 +1550,6 @@ section h2::after {
 
 }
 
-@media (max-width:1100px){
-
-    .knowledge-grid{
-
-        grid-template-columns:repeat(2,1fr);
-
-    }
-
-}
-
-@media (max-width:700px){
-
-    .knowledge-grid{
-
-        grid-template-columns:1fr;
-
-    }
-
-}
-
 /* ================= HERO QUOTE ================= */
 
 .hero-quote{
@@ -1756,55 +1711,7 @@ rotate(0deg);
 
 }
 
-@media (max-width:768px){
 
-.quote-box{
-
-width:100%;
-
-padding:22px;
-
-}
-
-.quote-box p{
-
-font-size:18px;
-
-line-height:1.7;
-
-}
-
-.quote-icon{
-
-font-size:26px;
-
-}
-
-.top-left{
-
-left:5%;
-
-}
-
-.top-right{
-
-right:5%;
-
-}
-
-.bottom-left{
-
-left:8%;
-
-}
-
-.bottom-right{
-
-right:8%;
-
-}
-
-}
 
 /* ================= PHẦN 4 ================= */
 
