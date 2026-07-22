@@ -267,9 +267,15 @@ body{
 
     overflow:hidden;
 
-    backdrop-filter:blur(16px);
+    backdrop-filter:blur(16px); 
 
-    transition:.35s;
+    opacity:0;
+
+    transform:translateY(35px);
+
+    transition:
+    opacity .7s ease,
+    transform .7s ease;
 
 }
 
@@ -1239,18 +1245,6 @@ box-shadow:
 
 /* ================= SCROLL ANIMATION ================= */
 
-.report-card{
-
-    opacity:0;
-
-    transform:translateY(35px);
-
-    transition:
-    opacity .7s ease,
-    transform .7s ease;
-
-}
-
 .report-card.show{
 
     opacity:1;
@@ -1438,3 +1432,300 @@ box-shadow:
     --accent:#ea0808;
 
 }
+
+/* =====================================================
+   MOBILE DỌC
+===================================================== */
+@media (max-width:767px) and (orientation:portrait){
+
+/* Header */
+.header{
+    width:95%;
+    padding:14px;
+    gap:12px;
+}
+
+.logo img{
+    width:48px;
+    height:48px;
+}
+
+.header-text h2{
+    font-size:15px;
+    line-height:1.4;
+}
+
+.header-text p{
+    font-size:11px;
+}
+
+/* Container */
+
+.container{
+    width:95%;
+    margin:25px auto;
+}
+
+.result-container{
+    padding:18px;
+    gap:22px;
+}
+
+/* Tiêu đề */
+
+.title-main{
+    font-size:26px;
+    line-height:1.4;
+}
+
+.report-title{
+    font-size:20px;
+    text-align:center;
+}
+
+.card-header{
+    padding:16px;
+}
+
+/* Tổng quan */
+
+.summary-grid{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+.summary-card{
+    width:100%;
+    padding:22px 18px;
+}
+
+.summary-card h3{
+    font-size:17px;
+}
+
+.score-value{
+    font-size:28px;
+}
+
+.report-content{
+    padding:18px;
+    font-size:15px;
+    line-height:1.9;
+}
+
+/* Nút */
+
+.home-btn{
+    width:95%;
+    justify-content:center;
+    font-size:16px;
+    padding:16px;
+}
+
+/* ================= FOOTER ================= */
+
+.footer{
+    padding:45px 20px;
+}
+
+.footer h3{
+    font-size:24px;
+    line-height:1.5;
+}
+
+.footer-content>p{
+    font-size:15px;
+}
+
+.footer-contact{
+    margin-top:18px;
+}
+
+.footer-contact p{
+    font-size:14px;
+}
+
+/* đổi grid thành flex dọc */
+.footer-owner{
+
+    display:grid !important;
+
+    grid-template-columns:1fr !important;
+
+    gap:20px;
+
+    justify-items:center;
+
+    align-items:center;
+
+}
+
+/* logo */
+
+.footer-logo-side{
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:center;
+
+}
+
+
+.footer-logo-side img{
+
+    width:90px;
+
+    height:90px;
+
+}
+
+/* khung */
+
+.owner-box{
+
+    width:100%;
+
+    max-width:320px;
+
+}
+
+.owner-box h4{
+
+    font-size:20px;
+
+}
+
+.owner-box p{
+
+    font-size:15px;
+
+}
+
+.footer-bottom{
+
+    margin-top:28px;
+    font-size:13px;
+
+}
+}
+
+/*=================================================
+   MOBILE NGANG
+===================================================== */
+@media (max-width:950px) and (orientation:landscape){
+
+.header{
+    width:96%;
+    padding:14px 20px;
+}
+
+.logo img{
+    width:50px;
+    height:50px;
+}
+
+.header-text h2{
+    font-size:18px;
+}
+
+.header-text p{
+    font-size:12px;
+}
+
+/* Container */
+
+.container{
+    width:95%;
+    max-width:100%;
+}
+
+.result-container{
+    padding:24px;
+}
+
+/* Tiêu đề */
+
+.title-main{
+    font-size:32px;
+}
+
+.report-title{
+    font-size:24px;
+}
+
+/* UCLA + CIU */
+
+.summary-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+}
+
+.summary-card{
+    width:100%;
+    padding:22px;
+}
+
+.summary-card h3{
+    font-size:18px;
+}
+
+.score-value{
+    font-size:30px;
+}
+
+.report-content{
+    font-size:15px;
+}
+
+/* Nút */
+
+.home-btn{
+    width:auto;
+    padding:16px 28px;
+}
+
+/* ================= FOOTER ================= */
+
+.footer{
+    padding:55px 25px;
+}
+
+.footer h3{
+    font-size:28px;
+}
+
+.footer-owner{
+
+    display:grid;
+
+    grid-template-columns:
+    110px
+    1fr
+    1fr
+    110px;
+
+    gap:18px;
+
+    align-items:center;
+
+}
+
+.owner-box{
+    width:100%;
+}
+
+.footer-logo-side img{
+    width:90px;
+    height:90px;
+}
+
+.footer-bottom{
+    font-size:13px;
+}
+
+}
+
