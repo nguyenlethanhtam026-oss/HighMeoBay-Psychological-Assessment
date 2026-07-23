@@ -47,6 +47,44 @@ document.getElementById("surveyForm")
 );
     }
 
+    // ===== KIỂM TRA PHẦN C =====
+
+const requiredFields = [
+    "graded",
+    "grade",
+    "subject_group",
+    "time_social",
+    "mucdoketban",
+    "mucdocamxuc"
+];
+
+for (const name of requiredFields) {
+
+    if (!document.querySelector(`input[name="${name}"]:checked`)) {
+
+        alert("Bạn chưa hoàn thành đầy đủ Phần C!");
+        return;
+
+    }
+
+}
+
+// Kiểm tra checkbox Hoạt động khi cô đơn
+if (!document.querySelector('input[name="alone_activity"]:checked')) {
+
+    alert("Bạn chưa chọn hoạt động khi cảm thấy cô đơn!");
+    return;
+
+}
+
+// Kiểm tra checkbox Mục đích sử dụng MXH
+if (!document.querySelector('input[name="social_purpose"]:checked')) {
+
+    alert("Bạn chưa chọn mục đích sử dụng mạng xã hội!");
+    return;
+
+}
+
     // Lưu điểm cho result.html
 
     localStorage.setItem(
